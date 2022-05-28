@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/backgroundcolor"
+    android:background="#FFFFFF"
     tools:context=".groups.AddParticipants"
     tools:ignore="Overdraw">
 
@@ -12,7 +12,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="?attr/headercolor"
+        android:background="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -23,11 +23,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:contentDescription="@string/contentdescription"
             android:src="@drawable/ic_cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/contentdescription"
             app:tint="#fff" />
 
         <RelativeLayout
@@ -36,6 +36,7 @@
             android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
+            android:alpha="1"
             android:background="@drawable/search_edittext"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,24 +50,24 @@
                 android:layout_marginEnd="10dp"
                 android:layout_toEndOf="@+id/img_password"
                 android:background="#0000"
-                android:fontFamily="@font/med"
+                android:fontFamily="@font/URWGeometricMedium"
                 android:hint="@string/search"
+                android:importantForAutofill="no"
                 android:inputType="text"
                 android:maxLines="1"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="#000000"
+                android:textColorHint="#3D353E"
                 android:textSize="25dp"
-                tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextFields"
-                android:importantForAutofill="no" />
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage,TextFields" />
 
             <ImageView
                 android:id="@+id/img_password"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/contentdescription"
                 android:padding="5dp"
                 android:src="@drawable/ic_search"
-                android:contentDescription="@string/contentdescription"
-                app:tint="#fff" />
+                app:tint="#000000" />
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -80,23 +81,24 @@
         app:layout_constraintTop_toBottomOf="@+id/header">
 
         <ProgressBar
+            android:id="@+id/pg"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:indeterminateOnly="true"
-            android:id="@+id/pg"
             android:visibility="visible" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/users"
-        tools:listitem="@layout/user_display"
+        android:background="#F4F4F4"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rl" />
+        app:layout_constraintTop_toBottomOf="@+id/rl"
+        tools:listitem="@layout/user_display" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
